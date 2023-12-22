@@ -1,12 +1,11 @@
-import React from 'react';
-import {View, StyleSheet, ViewStyle} from 'react-native';
-import ListScreen from '../Phone/ListScreen';
-import CombinedScreen from '../Tablet/CombinedScreen';
-import DeviceInfo from 'react-native-device-info';
+import React from "react";
+import { View, StyleSheet, ViewStyle } from "react-native";
+import ListScreen from "../Phone/ListScreen";
+import CombinedScreen from "../Tablet/CombinedScreen";
+import DeviceInfo from "react-native-device-info";
 
 const Home: React.FC = () => {
   const isTablet: boolean = DeviceInfo.isTablet();
-
   return (
     <View style={styles.container}>
       {isTablet ? (
@@ -23,8 +22,8 @@ const Home: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   } as ViewStyle,
 });
 

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './src/screens/Home/Home';
-import CombinedScreen from './src/screens/Tablet/CombinedScreen';
-import ListScreen from './src/screens/Phone/ListScreen';
-import DetailScreen from './src/screens/Phone/DetailScreen';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/screens/Home/Home";
+import CombinedScreen from "./src/screens/Tablet/CombinedScreen";
+import ListScreen from "./src/screens/Phone/ListScreen";
+import DetailScreen from "./src/screens/Phone/DetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,27 +47,3 @@ const App = () => {
 };
 
 export default App;
-
-// import {StyleSheet, Text, View} from 'react-native';
-// import React from 'react';
-// import Config from 'react-native-config';
-
-// const App = () => {
-//   return (
-//     <View
-//       style={{
-//         backgroundColor: 'green',
-//         // width: '100%',
-//         flex: 1,
-//         justifyContent: 'center',
-//       }}>
-//       <Text style={{textAlign: 'center', color: 'white', fontSize: 30}}>
-//         {Config.NODE_ENV}
-//       </Text>
-//     </View>
-//   );
-// };
-
-// export default App;
-
-// const styles = StyleSheet.create({});

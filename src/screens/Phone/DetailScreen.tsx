@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   StyleSheet,
@@ -8,8 +8,8 @@ import {
   ScrollView,
   SafeAreaView,
   ImageStyle,
-} from 'react-native';
-import {dummyImage, imagePath} from '../../constants/Constants';
+} from "react-native";
+import { dummyImage, imagePath } from "../../constants/Constants";
 
 interface DetailScreenProps {
   route: {
@@ -24,15 +24,15 @@ interface DetailScreenProps {
   };
 }
 
-const DetailScreen: React.FC<DetailScreenProps> = ({route}) => {
-  const {item} = route?.params || {};
+const DetailScreen: React.FC<DetailScreenProps> = ({ route }) => {
+  const { item } = route?.params || {};
   const window = useWindowDimensions();
   const Height = window.height;
   const Width = window.width;
   const imageHeightWidth = Width > Height ? Width * 0.4 : Width * 0.6;
-  const splitData = item?.Text?.split('-');
-  const title = splitData ? splitData[0] : '';
-  const description = splitData ? splitData[1] : '';
+  const splitData = item?.Text?.split("-");
+  const title = splitData ? splitData[0] : "";
+  const description = splitData ? splitData[1] : "";
   const imageUrl = item?.Icon?.URL ? imagePath + item?.Icon?.URL : dummyImage;
 
   return (
@@ -40,8 +40,9 @@ const DetailScreen: React.FC<DetailScreenProps> = ({route}) => {
       <SafeAreaView
         style={[
           styles.container,
-          {flexDirection: Width > Height ? 'row' : 'column'},
-        ]}>
+          { flexDirection: Width > Height ? "row" : "column" },
+        ]}
+      >
         <View style={styles.imageContainer}>
           <Image
             source={{
@@ -52,7 +53,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({route}) => {
               {
                 width: imageHeightWidth,
                 height: imageHeightWidth,
-                marginTop: Width > Height ? 0 : '25%',
+                marginTop: Width > Height ? 0 : "25%",
               },
             ]}
           />
@@ -71,32 +72,32 @@ export default DetailScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   imageContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   imageStyle: {
-    resizeMode: 'contain',
+    resizeMode: "contain",
   } as ImageStyle,
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
   descriptionText: {
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });

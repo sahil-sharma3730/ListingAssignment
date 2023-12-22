@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Text,
   FlatList,
@@ -6,8 +6,8 @@ import {
   SafeAreaView,
   TextInput,
   Dimensions,
-} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 interface Character {
   Text: string;
@@ -17,24 +17,24 @@ interface CharacterListProps {
   characters: Character[];
 }
 
-const height = Dimensions.get('window').height;
-const width = Dimensions.get('window').width;
+const height = Dimensions.get("window").height;
+const width = Dimensions.get("window").width;
 
-const CharacterList: React.FC<CharacterListProps> = ({characters}) => {
+const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
   const navigation = useNavigation();
 
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [filteredData, setFilteredData] = useState<Character[]>([]);
 
   const navigateTo = (item: Character) => {
     //@ts-ignore
-    navigation.navigate('DetailScreen', {item});
+    navigation.navigate("DetailScreen", { item });
   };
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     const filtered = characters.filter((item: Character) =>
-      item?.Text.toLowerCase().includes(query.toLowerCase()),
+      item?.Text.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredData(filtered);
   };
@@ -43,9 +43,9 @@ const CharacterList: React.FC<CharacterListProps> = ({characters}) => {
     setFilteredData(characters);
   }, [characters]);
 
-  const renderItem = ({item, index}: {item: Character; index: number}) => {
-    const splitData = item?.Text.split('-');
-    const title = splitData ? splitData[0] : '';
+  const renderItem = ({ item, index }: { item: Character; index: number }) => {
+    const splitData = item?.Text.split("-");
+    const title = splitData ? splitData[0] : "";
 
     return (
       <SafeAreaView>
@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '4%',
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "4%",
     width: width,
     height: height,
   },
@@ -89,21 +89,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 8,
     fontSize: 16,
     marginBottom: 10,
-    width: '80%',
+    width: "80%",
   },
   item: {
     fontSize: 18,
     height: 44,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 10,
   },
   flatList: {
     flex: 1,
-    width: '100%',
+    width: "100%",
   },
 });
 

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, SafeAreaView} from 'react-native';
-import CharacterList from '../../components/CharacterList';
-import {fetchData} from '../../utils/Utils';
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, SafeAreaView } from "react-native";
+import CharacterList from "../../components/CharacterList";
+import { fetchData } from "../../utils/Utils";
 
 interface Character {
   FirstURL: string;
@@ -19,10 +19,11 @@ const ListScreen: React.FC = () => {
     const fetchValues = async () => {
       try {
         const response = await fetchData();
-        const data: {data: {RelatedTopics: Character[]}} | undefined = response;
+        const data: { data: { RelatedTopics: Character[] } } | undefined =
+          response;
         setCharacters(data?.data?.RelatedTopics || []);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
     fetchValues();
@@ -38,9 +39,9 @@ const ListScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
 });
 
